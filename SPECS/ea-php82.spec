@@ -830,12 +830,6 @@ cp ext/mbstring/libmbfl/LICENSE libmbfl_LICENSE
 cp ext/fileinfo/libmagic/LICENSE libmagic_LICENSE
 cp ext/bcmath/libbcmath/LICENSE libbcmath_LICENSE
 
-# Remove the bundled version of litespeed
-# and replace it with the latest version
-#cd sapi
-#tar -xvf %{SOURCE1} --exclude=Makefile.frag --exclude=config.m4
-#cd ..
-
 # Multiple builds for multiple SAPIs
 mkdir \
 build-fpm \

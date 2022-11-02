@@ -82,8 +82,10 @@ License:  PHP and Zend and BSD
 Group:    Development/Languages
 URL:      http://www.php.net/
 
+%global litespeed_version 8.1
+
 Source0: php-%{version}.tar.gz
-Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-8.0.1.tgz
+Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-%{litespeed_version}.tgz
 Source2: php.ini
 Source3: macros.php
 Source4: php-fpm.conf
@@ -829,6 +831,16 @@ cp sapi/fpm/LICENSE fpm_LICENSE
 cp ext/mbstring/libmbfl/LICENSE libmbfl_LICENSE
 cp ext/fileinfo/libmagic/LICENSE libmagic_LICENSE
 cp ext/bcmath/libbcmath/LICENSE libbcmath_LICENSE
+
+# Remove the bundled version of litespeed
+# and replace it with the latest version
+# Note in litespeed 8.1 they changed the name of the top directory
+# so I need to copy from the top dir
+
+pushd sapi
+tar -xvf %{SOURCE1} --exclude=Makefile.frag --exclude=config.m4
+cp litespeed-%{litespeed_version}/* litespeed
+popd
 
 # Multiple builds for multiple SAPIs
 mkdir \

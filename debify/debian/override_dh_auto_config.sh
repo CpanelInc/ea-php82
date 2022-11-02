@@ -13,9 +13,13 @@ cp ext/bcmath/libbcmath/LICENSE libbcmath_LICENSE
 
 # Remove the bundled version of litespeed
 # and replace it with the latest version
-#pushd sapi
-#tar -xvf $SOURCE1 --exclude=Makefile.frag --exclude=config.m4
-#popd
+# Note in litespeed 8.1 they changed the name of the top directory
+# so I need to copy from the top dir
+
+pushd sapi
+tar -xvf $SOURCE1 --exclude=Makefile.frag --exclude=config.m4
+cp litespeed-$(litespeed_version)/* litespeed
+popd
 
 # ----- Manage known as failed test -------
 # affected by systzdata patch

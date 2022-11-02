@@ -1497,7 +1497,7 @@ fi
 %files zip -f files.zip
 
 %changelog
-* Wed Nov 02 2022 Julian Brown <julian.brown@cpanel.net> - 8.2.0rc3-2
+* Wed Nov 02 2022 Julian Brown <julian.brown@cpanel.net> - 8.2.0-2
 - ZC-10364: ZC-10364: Update to new php_litespeed
 
 * Fri Oct 07 2022 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.0-1

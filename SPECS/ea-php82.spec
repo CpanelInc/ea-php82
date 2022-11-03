@@ -73,7 +73,7 @@ Name:     %{?scl_prefix}php
 # update to public release: also update other temprary hardcoded. look for "drop the RC labels"
 Version:  8.2.0rc3
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -82,8 +82,10 @@ License:  PHP and Zend and BSD
 Group:    Development/Languages
 URL:      http://www.php.net/
 
+%global litespeed_version 8.1
+
 Source0: php-%{version}.tar.gz
-Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-8.0.1.tgz
+Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-%{litespeed_version}.tgz
 Source2: php.ini
 Source3: macros.php
 Source4: php-fpm.conf
@@ -830,6 +832,16 @@ cp ext/mbstring/libmbfl/LICENSE libmbfl_LICENSE
 cp ext/fileinfo/libmagic/LICENSE libmagic_LICENSE
 cp ext/bcmath/libbcmath/LICENSE libbcmath_LICENSE
 
+# Remove the bundled version of litespeed
+# and replace it with the latest version
+# Note in litespeed 8.1 they changed the name of the top directory
+# so I need to copy from the top dir
+
+pushd sapi
+tar -xvf %{SOURCE1} --exclude=Makefile.frag --exclude=config.m4
+cp litespeed-%{litespeed_version}/* litespeed
+popd
+
 # Multiple builds for multiple SAPIs
 mkdir \
 build-fpm \
@@ -1485,6 +1497,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Wed Nov 02 2022 Julian Brown <julian.brown@cpanel.net> - 8.2.0-2
+- ZC-10364: ZC-10364: Update to new php_litespeed
+
 * Fri Oct 07 2022 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.0-1
 - ZC-10359: Initial Build
 

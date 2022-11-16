@@ -73,7 +73,7 @@ Name:     %{?scl_prefix}php
 # update to public release: also update other temprary hardcoded. look for "drop the RC labels"
 Version:  8.2.0rc3
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 2
+%define release_prefix 3
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1497,6 +1497,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Wed Nov 16 2022 Travis Holloway <t.holloway@cpanel.net> - 8.2.0-3
+- EA-11039: Ensure php.ini is marked as a config file on debian based systems
+
 * Wed Nov 02 2022 Julian Brown <julian.brown@cpanel.net> - 8.2.0-2
 - ZC-10364: ZC-10364: Update to new php_litespeed
 

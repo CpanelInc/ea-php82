@@ -36,8 +36,7 @@ rm Zend/tests/bug68412.phpt
 
 # Safety check for API version change.
 pver=$(sed -n '/#define PHP_VERSION /{s/.* "//;s/".*$//;p}' main/php_version.h)
-# TODO: Change back with release
-if test "x${pver}" != "x$embed_version"; then
+if test "x${pver}" != "x$version"; then
    : Error: Upstream PHP version is now ${pver}, expecting $version.
    : Update the version macros and rebuild.
    exit 1

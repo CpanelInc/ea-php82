@@ -22,7 +22,7 @@
 %global _hardened_build 1
 
 # version used for php embedded library soname
-%global embed_version 8.2.0RC3
+%global embed_version 8.2
 
 # Ugly hack. Harcoded values to avoid relocation.
 %global _httpd_confdir     %{_root_sysconfdir}/apache2/conf.d
@@ -70,10 +70,9 @@ BuildRequires: ea-libzip-devel
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-# update to public release: also update other temprary hardcoded. look for "drop the RC labels"
 Version:  8.2.0
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 3
+%define release_prefix 4
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -809,7 +808,7 @@ inside them.
 %prep
 : Building %{name}-%{version}-%{release} with systemd=%{with_systemd} sqlite3=%{with_sqlite3} tidy=%{with_tidy} zip=%{with_zip}
 
-%setup -q -n php-8.2.0RC3
+%setup -q -n php-%{version}
 
 %patch42 -p1 -b .systemdpackage
 %patch43 -p1 -b .phpize
@@ -862,10 +861,7 @@ rm Zend/tests/bug68412.phpt
 
 # Safety check for API version change.
 pver=$(sed -n '/#define PHP_VERSION /{s/.* "//;s/".*$//;p}' main/php_version.h)
-# TODO: Change this with release
-#if test "x${pver}" != "x%{version}"; then
-# TODO: Change to version when official release
-if test "x${pver}" != "x%{embed_version}"; then
+if test "x${pver}" != "x%{version}"; then
    : Error: Upstream PHP version is now ${pver}, expecting %{version}.
    : Update the version macros and rebuild.
    exit 1
@@ -1497,6 +1493,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Mon Dec 12 2022 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.0-4
+- ZC-10495: Update to official PHP 8.2 release
+
 * Wed Nov 16 2022 Travis Holloway <t.holloway@cpanel.net> - 8.2.0-3
 - EA-11039: Ensure php.ini is marked as a config file on debian based systems
 

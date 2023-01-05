@@ -9,10 +9,10 @@ Subject: [PATCH 11/12] Revert new .user.ini search behavior
  2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/sapi/cgi/cgi_main.c b/sapi/cgi/cgi_main.c
-index 499a793..7e4baf2 100644
+index b454680..a4432f8 100644
 --- a/sapi/cgi/cgi_main.c
 +++ b/sapi/cgi/cgi_main.c
-@@ -777,7 +777,7 @@ static void sapi_cgi_log_message(const char *message, int syslog_type_int)
+@@ -778,7 +778,7 @@ static void sapi_cgi_log_message(const char *message, int syslog_type_int)
  }
  
  /* {{{ php_cgi_ini_activate_user_config */
@@ -21,7 +21,7 @@ index 499a793..7e4baf2 100644
  {
  	user_config_cache_entry *new_entry, *entry;
  	time_t request_time = (time_t)sapi_get_request_time();
-@@ -830,7 +830,7 @@ static void php_cgi_ini_activate_user_config(char *path, size_t path_len, const
+@@ -831,7 +831,7 @@ static void php_cgi_ini_activate_user_config(char *path, size_t path_len, const
  #else
  		if (strncmp(s1, s2, s_len) == 0) {
  #endif
@@ -30,7 +30,7 @@ index 499a793..7e4baf2 100644
  #ifdef PHP_WIN32
  			while ((ptr = strpbrk(ptr, "\\/")) != NULL) {
  #else
-@@ -930,7 +930,7 @@ static int sapi_cgi_activate(void)
+@@ -931,7 +931,7 @@ static int sapi_cgi_activate(void)
  				doc_root = estrndup(doc_root, doc_root_len);
  				zend_str_tolower(doc_root, doc_root_len);
  #endif
@@ -40,10 +40,10 @@ index 499a793..7e4baf2 100644
  #ifdef PHP_WIN32
  				efree(doc_root);
 diff --git a/sapi/fpm/fpm/fpm_main.c b/sapi/fpm/fpm/fpm_main.c
-index c30fa48..216b55a 100644
+index 911372a..acaa231 100644
 --- a/sapi/fpm/fpm/fpm_main.c
 +++ b/sapi/fpm/fpm/fpm_main.c
-@@ -614,7 +614,7 @@ static void sapi_cgi_log_message(const char *message, int syslog_type_int)
+@@ -615,7 +615,7 @@ static void sapi_cgi_log_message(const char *message, int syslog_type_int)
  /* }}} */
  
  /* {{{ php_cgi_ini_activate_user_config */
@@ -52,7 +52,7 @@ index c30fa48..216b55a 100644
  {
  	char *ptr;
  	time_t request_time = sapi_get_request_time();
-@@ -676,7 +676,7 @@ static void php_cgi_ini_activate_user_config(char *path, int path_len, const cha
+@@ -677,7 +677,7 @@ static void php_cgi_ini_activate_user_config(char *path, int path_len, const cha
  			to find more user.ini, if not we only scan the current path.
  		  */
  		if (strncmp(s1, s2, s_len) == 0) {
@@ -61,7 +61,7 @@ index c30fa48..216b55a 100644
  			while ((ptr = strchr(ptr, DEFAULT_SLASH)) != NULL) {
  				*ptr = 0;
  				php_parse_user_ini_file(path, PG(user_ini_filename), entry->user_config);
-@@ -750,7 +750,7 @@ static int sapi_cgi_activate(void) /* {{{ */
+@@ -751,7 +751,7 @@ static int sapi_cgi_activate(void) /* {{{ */
  					--doc_root_len;
  				}
  

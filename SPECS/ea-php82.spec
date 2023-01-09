@@ -70,9 +70,9 @@ BuildRequires: ea-libzip-devel
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.2.0
+Version:  8.2.1
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 4
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -83,7 +83,7 @@ URL:      http://www.php.net/
 
 %global litespeed_version 8.1
 
-Source0: php-%{version}.tar.gz
+Source0: php-%{version}.tar.bz2
 Source1: https://www.litespeedtech.com/packages/lsapi/php-litespeed-%{litespeed_version}.tgz
 Source2: php.ini
 Source3: macros.php
@@ -1493,6 +1493,10 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Jan 05 2023 Cory McIntire <cory@cpanel.net> - 8.2.1-1
+- EA-11136: Update ea-php82 from v8.2.0 to v8.2.1
+- PDO::quote() may return unquoted string). (CVE-2022-31631)
+
 * Mon Dec 12 2022 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.0-4
 - ZC-10495: Update to official PHP 8.2 release
 

@@ -8,10 +8,10 @@ Subject: [PATCH 12/12] Prevent kill_all_lockers() from crashing PHP
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/ext/opcache/ZendAccelerator.c b/ext/opcache/ZendAccelerator.c
-index d19d3b1..fb9b671 100644
+index 2d0dcee..0c50912 100644
 --- a/ext/opcache/ZendAccelerator.c
 +++ b/ext/opcache/ZendAccelerator.c
-@@ -824,7 +824,7 @@ static inline void kill_all_lockers(struct flock *mem_usage_check)
+@@ -873,7 +873,7 @@ static inline void kill_all_lockers(struct flock *mem_usage_check)
  			/* errno is not ESRCH or we ran out of tries to kill the locker */
  			ZCSG(force_restart_time) = time(NULL); /* restore forced restart request */
  			/* cannot kill the locker, bail out with error */

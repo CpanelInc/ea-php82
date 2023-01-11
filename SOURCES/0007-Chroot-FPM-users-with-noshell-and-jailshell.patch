@@ -9,10 +9,10 @@ Subject: [PATCH 07/12] Chroot FPM users with noshell and jailshell
  2 files changed, 71 insertions(+), 1 deletion(-)
 
 diff --git a/sapi/fpm/fpm/fpm_conf.c b/sapi/fpm/fpm/fpm_conf.c
-index b2b1d64..1bb2c1d 100644
+index f2d9d3c..671d7fc 100644
 --- a/sapi/fpm/fpm/fpm_conf.c
 +++ b/sapi/fpm/fpm/fpm_conf.c
-@@ -1086,7 +1086,8 @@ static int fpm_conf_process_all_pools(void)
+@@ -1099,7 +1099,8 @@ static int fpm_conf_process_all_pools(void)
  
  				spprintf(&buf, 0, "%s/%s", wp->config->chroot, wp->config->chdir);
  
@@ -23,7 +23,7 @@ index b2b1d64..1bb2c1d 100644
  					efree(buf);
  					return -1;
 diff --git a/sapi/fpm/fpm/fpm_unix.c b/sapi/fpm/fpm/fpm_unix.c
-index ed5b662..511601b 100644
+index b1127b3..266981c 100644
 --- a/sapi/fpm/fpm/fpm_unix.c
 +++ b/sapi/fpm/fpm/fpm_unix.c
 @@ -10,6 +10,7 @@
@@ -34,7 +34,7 @@ index ed5b662..511601b 100644
  
  #ifdef HAVE_PRCTL
  #include <sys/prctl.h>
-@@ -357,6 +358,74 @@ int fpm_unix_init_child(struct fpm_worker_pool_s *wp) /* {{{ */
+@@ -374,6 +375,74 @@ int fpm_unix_init_child(struct fpm_worker_pool_s *wp) /* {{{ */
  		}
  	}
  

@@ -40,10 +40,10 @@ index b454680..a4432f8 100644
  #ifdef PHP_WIN32
  				efree(doc_root);
 diff --git a/sapi/fpm/fpm/fpm_main.c b/sapi/fpm/fpm/fpm_main.c
-index 911372a..acaa231 100644
+index f0f2825..45125af 100644
 --- a/sapi/fpm/fpm/fpm_main.c
 +++ b/sapi/fpm/fpm/fpm_main.c
-@@ -615,7 +615,7 @@ static void sapi_cgi_log_message(const char *message, int syslog_type_int)
+@@ -621,7 +621,7 @@ static void sapi_cgi_log_message(const char *message, int syslog_type_int)
  /* }}} */
  
  /* {{{ php_cgi_ini_activate_user_config */
@@ -52,7 +52,7 @@ index 911372a..acaa231 100644
  {
  	char *ptr;
  	time_t request_time = sapi_get_request_time();
-@@ -677,7 +677,7 @@ static void php_cgi_ini_activate_user_config(char *path, int path_len, const cha
+@@ -683,7 +683,7 @@ static void php_cgi_ini_activate_user_config(char *path, int path_len, const cha
  			to find more user.ini, if not we only scan the current path.
  		  */
  		if (strncmp(s1, s2, s_len) == 0) {
@@ -61,7 +61,7 @@ index 911372a..acaa231 100644
  			while ((ptr = strchr(ptr, DEFAULT_SLASH)) != NULL) {
  				*ptr = 0;
  				php_parse_user_ini_file(path, PG(user_ini_filename), entry->user_config);
-@@ -751,7 +751,7 @@ static int sapi_cgi_activate(void) /* {{{ */
+@@ -757,7 +757,7 @@ static int sapi_cgi_activate(void) /* {{{ */
  					--doc_root_len;
  				}
  

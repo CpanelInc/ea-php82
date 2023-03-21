@@ -9,7 +9,7 @@ Subject: [PATCH 07/12] Chroot FPM users with noshell and jailshell
  2 files changed, 71 insertions(+), 1 deletion(-)
 
 diff --git a/sapi/fpm/fpm/fpm_conf.c b/sapi/fpm/fpm/fpm_conf.c
-index ef9b35a..48677d4 100644
+index ef9b35a9..48677d40 100644
 --- a/sapi/fpm/fpm/fpm_conf.c
 +++ b/sapi/fpm/fpm/fpm_conf.c
 @@ -1100,7 +1100,8 @@ static int fpm_conf_process_all_pools(void)
@@ -23,7 +23,7 @@ index ef9b35a..48677d4 100644
  					efree(buf);
  					return -1;
 diff --git a/sapi/fpm/fpm/fpm_unix.c b/sapi/fpm/fpm/fpm_unix.c
-index d10a6f3..4798003 100644
+index d10a6f32..4798003d 100644
 --- a/sapi/fpm/fpm/fpm_unix.c
 +++ b/sapi/fpm/fpm/fpm_unix.c
 @@ -10,6 +10,7 @@

@@ -1,3 +1,5 @@
+%global debug_package %{nil}
+
 # Defining the package namespace
 # NOTE: pkg variable is a hack to fix invalid macro inside of macros.php
 %global ns_name ea
@@ -88,7 +90,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.5
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -701,6 +703,8 @@ Provides: %{?scl_prefix}php-xsl = %{version}-%{release}, %{?scl_prefix}php-xsl%{
 Provides: %{?scl_prefix}php-simplexml = %{version}-%{release}, %{?scl_prefix}php-simplexml%{?_isa} = %{version}-%{release}
 BuildRequires: libxslt-devel >= 1.0.18-1, ea-libxml2-devel
 Requires: ea-libxml2
+BuildRequires: libxslt >= 1.0.18-1
+Requires: libxslt >= 1.0.18-1
 
 %description xml
 The %{?scl_prefix}php-xml package contains dynamic shared objects which add support
@@ -1580,6 +1584,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Tue Apr 18 2023 Julian Brown <julian.brown@cpanel.net> - 8.2.5-2
+- ZC-10873: Simplify the libidn deps, for building on Ubuntu 20 and 22
+
 * Thu Apr 13 2023 Cory McIntire <cory@cpanel.net> - 8.2.5-1
 - EA-11355: Update ea-php82 from v8.2.4 to v8.2.5
 

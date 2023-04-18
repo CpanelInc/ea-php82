@@ -20,8 +20,6 @@
         "ea-php82-libc-client-devel",
         "ea-php82-libc-client",
         "brotli-devel",
-        "libidn",
-        "libidn-devel",
         "ea-php82-php",
         "pkgconfig(libsodium)",
         "libsodium"
@@ -55,8 +53,6 @@
         "unixodbc-dev",
         "libbrotli-dev",
         "libbrotli1",
-        "libidn11",
-        "libidn11-dev",
         "libsodium-dev",
         "libsodium23"
     ],

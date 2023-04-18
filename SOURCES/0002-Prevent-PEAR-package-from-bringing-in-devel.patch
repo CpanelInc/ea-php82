@@ -8,7 +8,7 @@ Subject: [PATCH 02/12] Prevent PEAR package from bringing in devel
  1 file changed, 12 insertions(+)
 
 diff --git a/scripts/phpize.in b/scripts/phpize.in
-index 7d9c1df1..a6f64d41 100644
+index 7d9c1df..a6f64d4 100644
 --- a/scripts/phpize.in
 +++ b/scripts/phpize.in
 @@ -166,6 +166,15 @@ phpize_autotools()

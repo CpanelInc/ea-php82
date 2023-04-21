@@ -843,7 +843,12 @@ License: PHP
 Group: System Environment/Libraries
 Requires: %{?scl_prefix}php-common%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
+%if 0%{?rhel} >= 8
+BuildRequires: enchant2-devel
+Requires: enchant2
+%else
 BuildRequires: enchant-devel >= 1.2.4
+%endif
 
 %description enchant
 The %{?scl_prefix}php-enchant package contains a dynamic shared object that will add

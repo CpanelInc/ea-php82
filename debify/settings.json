@@ -20,8 +20,6 @@
         "ea-php82-libc-client-devel",
         "ea-php82-libc-client",
         "brotli-devel",
-        "libidn",
-        "libidn-devel",
         "ea-php82-php",
         "pkgconfig(libsodium)",
         "libsodium"
@@ -55,20 +53,16 @@
         "unixodbc-dev",
         "libbrotli-dev",
         "libbrotli1",
-        "libidn11",
-        "libidn11-dev",
         "libsodium-dev",
         "libsodium23"
     ],
     "add_to_requires": {
         "ea-php82-php-imap": [ "libc-client2007e" ],
         "ea-php82-php-dba": [ "libtokyocabinet9" ],
-        "ea-php82-php-enchant": [ "libenchant1c2a" ],
         "ea-php82-php-odbc": [ "libodbc1" ],
         "ea-php82-php-pdo": [ "libpq5" ],
         "ea-php82-php-pgsql": [ "libpq5" ],
         "ea-php82-php-pspell": [ "libaspell15" ],
-        "ea-php82-php-snmp": [ "libsnmp35" ],
         "ea-php82-php-sodium": [ "ea-php82-php-common", "libsodium23" ]
     },
     "remove_from_install": [

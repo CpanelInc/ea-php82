@@ -1,3 +1,6 @@
+%define debug_package %{nil}
+%define _enable_debug_packages %{nil}
+
 # Defining the package namespace
 # NOTE: pkg variable is a hack to fix invalid macro inside of macros.php
 %global ns_name ea
@@ -88,7 +91,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.6
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 2
+%define release_prefix 3
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1587,6 +1590,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Wed May 17 2023 Julian Brown <julian.brown@cpanel.net> - 8.2.6-3
+- ZC-10950: Fix build problems
+
 * Mon May 16 2023 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.6-2
 - ZC-10936: Clean up Makefile and remove debug-package-nil
 

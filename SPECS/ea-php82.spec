@@ -91,7 +91,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.6
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 4
+%define release_prefix 5
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1589,6 +1589,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Tue May 30 2023 Travis Holloway <t.holloway@cpanel.net> - 8.2.6-5
+- EA-11447: Increase default php memory_limit for new installs from 32M to 128M
+
 * Thu May 18 2023 Julian Brown <julian.brown@cpanel.net> - 8.2.6-4
 - ZC-10931: Link statically against libc-client
 

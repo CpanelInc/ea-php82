@@ -1591,6 +1591,8 @@ fi
 %changelog
 * Thu Jun 08 2023 Cory McIntire <cory@cpanel.net> - 8.2.7-1
 - EA-11478: Update ea-php82 from v8.2.6 to v8.2.7
+    - Fixed bug GHSA-76gg-c692-v2mw
+        - (Missing error check and insufficient random bytes in HTTP Digest authentication for SOAP).
 
 * Tue May 30 2023 Travis Holloway <t.holloway@cpanel.net> - 8.2.6-5
 - EA-11447: Increase default php memory_limit for new installs from 32M to 128M

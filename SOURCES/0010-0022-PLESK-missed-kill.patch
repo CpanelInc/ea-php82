@@ -10,7 +10,7 @@ Subject: [PATCH 10/12] 0022-PLESK-missed-kill
  create mode 100644 sapi/fpm/fpm/fpm_process_ctl.c.orig
 
 diff --git a/sapi/fpm/fpm/fpm_process_ctl.c b/sapi/fpm/fpm/fpm_process_ctl.c
-index 48eb000..18b9610 100644
+index 7a55d98..70791fe 100644
 --- a/sapi/fpm/fpm/fpm_process_ctl.c
 +++ b/sapi/fpm/fpm/fpm_process_ctl.c
 @@ -58,7 +58,7 @@ static void fpm_pctl_action(struct fpm_event_s *ev, short which, void *arg) /* {

@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 14:13:28 +0000
-Subject: [PATCH 01/12] EA4 OBS ready
+Subject: [PATCH 01/13] EA4 OBS ready
 
 ---
  build/php.m4       | 2 --
@@ -9,7 +9,7 @@ Subject: [PATCH 01/12] EA4 OBS ready
  2 files changed, 4 deletions(-)
 
 diff --git a/build/php.m4 b/build/php.m4
-index 0599d02..48c514e 100644
+index 0599d028..48c514ed 100644
 --- a/build/php.m4
 +++ b/build/php.m4
 @@ -2035,8 +2035,6 @@ dnl
@@ -22,7 +22,7 @@ index 0599d02..48c514e 100644
    PHP_EVAL_LIBLINE($LIBXML_LIBS, $1)
  
 diff --git a/sapi/fpm/config.m4 b/sapi/fpm/config.m4
-index da09511..0c216a6 100644
+index da09511a..0c216a6a 100644
 --- a/sapi/fpm/config.m4
 +++ b/sapi/fpm/config.m4
 @@ -583,8 +583,6 @@ if test "$PHP_FPM" != "no"; then

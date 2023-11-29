@@ -160,13 +160,13 @@ gzip debian/tmp/opt/cpanel/ea-php82/root/usr/share/man/man8/php-fpm.8
 
 cp -f ./debian/tmp/etc/php-fpm.conf ./debian/tmp/opt/cpanel/ea-php82/root/etc/php-fpm.conf
 
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-fpm-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath-${pkg_php_version}
-mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring-${pkg_php_version}
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-fpm
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath
+mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php-fpm.d
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php.d
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/var/run/php-fpm
@@ -176,44 +176,44 @@ mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/php
 mkdir -p ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/var/lib
 
 cp -R ${DEB_INSTALL_ROOT}/etc/php-fpm.d ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php-fpm.d
-cp -f ./sapi/phpdbg/CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg-${pkg_php_version}
-cp -f ./sapi/phpdbg/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg-${pkg_php_version}
+cp -f ./sapi/phpdbg/CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg
+cp -f ./sapi/phpdbg/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg
 cp -f ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php-fpm.d/php-fpm.d/www.conf.example ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php-fpm.d
 cp -R ${DEB_INSTALL_ROOT}/etc/sysconfig/php-fpm ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/sysconfig
-cp -R ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php-fpm.conf.default ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm-${pkg_php_version}
-cp -R ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm-${pkg_php_version}
+cp -R ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php-fpm.conf.default ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm
+cp -R ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm
 cp ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/etc/php.d/* ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc/php.d
 cp ${DEB_INSTALL_ROOT}/etc/php.ini ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/etc
-cp ./CODING_STANDARDS.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./EXTENSIONS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./NEWS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./README.REDIST.BINS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./TSRM_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./Zend/ZEND_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./libmagic_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./php.ini-development ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./php.ini-production ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}
-cp ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-fpm-${pkg_php_version}
-cp ./libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring-${pkg_php_version}
-cp ./libbcmath_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath-${pkg_php_version}
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg-${pkg_php_version}/CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg/CREDITS
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm-${pkg_php_version}/php-fpm.conf.default ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm/php-fpm.conf.default
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm-${pkg_php_version}/fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-fpm/fpm_LICENSE
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/CODING_STANDARDS.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/CODING_STANDARDS.md
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/EXTENSIONS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/EXTENSIONS
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/LICENSE
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/NEWS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/NEWS
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/README.REDIST.BINS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/README.REDIST.BINS
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/README.md
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/TSRM_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/TSRM_LICENSE
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/ZEND_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/ZEND_LICENSE
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/libmagic_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/libmagic_LICENSE
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/php.ini-development ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/php.ini-development
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-${pkg_php_version}/php.ini-production ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/php.ini-production
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring-${pkg_php_version}/libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring/libmbfl_LICENSE 
-install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath-${pkg_php_version}/libbcmath_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath/libbcmath_LICENSE
+cp ./CODING_STANDARDS.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./EXTENSIONS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./NEWS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./README.REDIST.BINS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./TSRM_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./Zend/ZEND_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./libmagic_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./php.ini-development ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./php.ini-production ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common
+cp ./fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-fpm
+cp ./libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring
+cp ./libbcmath_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg/CREDITS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-dbg/CREDITS
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm/php-fpm.conf.default ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm/php-fpm.conf.default
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-fpm/fpm_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-fpm/fpm_LICENSE
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/CODING_STANDARDS.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/CODING_STANDARDS.md
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/EXTENSIONS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/EXTENSIONS
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/LICENSE
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/NEWS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/NEWS
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/README.REDIST.BINS ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/README.REDIST.BINS
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/README.md
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/TSRM_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/TSRM_LICENSE
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/ZEND_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/ZEND_LICENSE
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/libmagic_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/libmagic_LICENSE
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/php.ini-development ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/php.ini-development
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/php.ini-production ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/php.ini-production
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring/libmbfl_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-mbstring/libmbfl_LICENSE 
+install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath/libbcmath_LICENSE ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/licenses/ea-php82-php-bcmath/libbcmath_LICENSE
 install -DT ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common-8.2.0rc3/README.md ${DEB_INSTALL_ROOT}/opt/cpanel/ea-php82/root/usr/share/doc/ea-php82-php-common/README.md
 
 echo "FILELIST"

@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 14:16:33 +0000
-Subject: [PATCH 04/12] Removed ZTS support
+Subject: [PATCH 04/13] Removed ZTS support
 
 ---
  sapi/apache2handler/config.m4 | 11 -----------
  1 file changed, 11 deletions(-)
 
 diff --git a/sapi/apache2handler/config.m4 b/sapi/apache2handler/config.m4
-index bcdb188..c8bacc2 100644
+index bcdb188d..c8bacc2b 100644
 --- a/sapi/apache2handler/config.m4
 +++ b/sapi/apache2handler/config.m4
 @@ -108,17 +108,6 @@ if test "$PHP_APXS2" != "no"; then

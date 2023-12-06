@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 15:57:56 +0000
-Subject: [PATCH 10/12] 0022-PLESK-missed-kill
+Subject: [PATCH 10/13] 0022-PLESK-missed-kill
 
 ---
  sapi/fpm/fpm/fpm_process_ctl.c      |   2 +-
@@ -10,7 +10,7 @@ Subject: [PATCH 10/12] 0022-PLESK-missed-kill
  create mode 100644 sapi/fpm/fpm/fpm_process_ctl.c.orig
 
 diff --git a/sapi/fpm/fpm/fpm_process_ctl.c b/sapi/fpm/fpm/fpm_process_ctl.c
-index 7a55d98..70791fe 100644
+index 7a55d98b..70791fe9 100644
 --- a/sapi/fpm/fpm/fpm_process_ctl.c
 +++ b/sapi/fpm/fpm/fpm_process_ctl.c
 @@ -58,7 +58,7 @@ static void fpm_pctl_action(struct fpm_event_s *ev, short which, void *arg) /* {
@@ -24,7 +24,7 @@ index 7a55d98..70791fe 100644
  }
 diff --git a/sapi/fpm/fpm/fpm_process_ctl.c.orig b/sapi/fpm/fpm/fpm_process_ctl.c.orig
 new file mode 100644
-index 0000000..28b59b3
+index 00000000..28b59b3d
 --- /dev/null
 +++ b/sapi/fpm/fpm/fpm_process_ctl.c.orig
 @@ -0,0 +1,540 @@

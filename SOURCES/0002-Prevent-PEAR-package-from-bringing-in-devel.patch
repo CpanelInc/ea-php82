@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 14:14:16 +0000
-Subject: [PATCH 02/13] Prevent PEAR package from bringing in devel
+Subject: [PATCH 02/12] Prevent PEAR package from bringing in devel
 
 ---
  scripts/phpize.in | 12 ++++++++++++

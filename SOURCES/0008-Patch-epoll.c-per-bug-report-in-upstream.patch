@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 14:20:13 +0000
-Subject: [PATCH 08/13] Patch epoll.c per bug report in upstream.
+Subject: [PATCH 08/12] Patch epoll.c per bug report in upstream.
 
 ---
  sapi/fpm/fpm/events/epoll.c | 7 ++++++-

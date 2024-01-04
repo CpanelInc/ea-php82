@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 14:16:33 +0000
-Subject: [PATCH 04/13] Removed ZTS support
+Subject: [PATCH 04/12] Removed ZTS support
 
 ---
  sapi/apache2handler/config.m4 | 11 -----------

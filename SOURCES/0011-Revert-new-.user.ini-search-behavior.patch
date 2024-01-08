@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 15:59:04 +0000
-Subject: [PATCH 11/13] Revert new .user.ini search behavior
+Subject: [PATCH 11/12] Revert new .user.ini search behavior
 
 ---
  sapi/cgi/cgi_main.c     | 6 +++---

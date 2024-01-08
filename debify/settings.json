@@ -63,6 +63,7 @@
         "ea-php82-php-pdo": [ "libpq5" ],
         "ea-php82-php-pgsql": [ "libpq5" ],
         "ea-php82-php-pspell": [ "libaspell15" ],
+        "ea-php82-php-snmp": [ "snmp-mibs-downloader" ],
         "ea-php82-php-sodium": [ "ea-php82-php-common", "libsodium23" ]
     },
     "remove_from_install": [

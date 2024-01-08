@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Julian Brown <julian.brown@cpanel.net>
 Date: Fri, 5 Nov 2021 16:01:32 +0000
-Subject: [PATCH 12/13] Prevent kill_all_lockers() from crashing PHP
+Subject: [PATCH 12/12] Prevent kill_all_lockers() from crashing PHP
 
 ---
  ext/opcache/ZendAccelerator.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/ext/opcache/ZendAccelerator.c b/ext/opcache/ZendAccelerator.c
-index 95767947..b8eb7668 100644
+index 9bcd035c..7ce52c3f 100644
 --- a/ext/opcache/ZendAccelerator.c
 +++ b/ext/opcache/ZendAccelerator.c
 @@ -877,7 +877,7 @@ static inline void kill_all_lockers(struct flock *mem_usage_check)

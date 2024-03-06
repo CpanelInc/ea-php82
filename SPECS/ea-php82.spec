@@ -86,12 +86,18 @@ BuildRequires: ea-libzip-devel
 %define ea_libcurl_ver 7.68.0-2
 %endif
 
+%if 0%{rhel} > 7
+%global with_avif 1
+%else
+%global with_avif 0
+%endif
+
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.17
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -745,6 +751,10 @@ Requires: libjpeg-turbo%{?_isa}, libpng%{?_isa}, libXpm%{?_isa}, freetype%{?_isa
 BuildRequires: libjpeg-turbo-devel%{?_isa}, libpng-devel%{?_isa}, libXpm-devel%{?_isa}, freetype-devel%{?_isa}
 Requires: libwebp%{?_isa}
 BuildRequires: libwebp-devel%{?_isa}
+%if %{with_avif}
+Requires: libavif%{?_isa}
+BuildRequires: libavif-devel%{?_isa}
+%endif
 
 %description gd
 The %{?scl_prefix}php-gd package contains a dynamic shared object that will add
@@ -1155,6 +1165,9 @@ build --libdir=%{_libdir}/php \
       --enable-mbstring=shared \
       --enable-litespeed \
       --with-webp \
+%if %{with_avif}
+      --with-avif \
+%endif
       --enable-gd=shared \
       --with-gmp=shared \
       --enable-calendar=shared \
@@ -1589,6 +1602,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Mar 21 2024 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.17-2
+- ZC-11561: Add GD support for AVIF format
+
 * Thu Mar 14 2024 Cory McIntire <cory@cpanel.net> - 8.2.17-1
 - EA-12016: Update ea-php82 from v8.2.16 to v8.2.17
 

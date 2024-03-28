@@ -1603,7 +1603,7 @@ fi
 
 %changelog
 * Thu Mar 21 2024 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.17-2
-- ZC-11561: Add GD support for AVIF format on RHEL 8/Ubuntu 22 and newer
+- ZC-11561: Add GD support for AVIF format on RHEL 8 and newer (RHEL only)
 
 * Thu Mar 14 2024 Cory McIntire <cory@cpanel.net> - 8.2.17-1
 - EA-12016: Update ea-php82 from v8.2.16 to v8.2.17

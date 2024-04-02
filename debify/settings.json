@@ -22,7 +22,9 @@
         "brotli-devel",
         "ea-php82-php",
         "pkgconfig(libsodium)",
-        "libsodium"
+        "libsodium",
+        "libavif",
+        "libavif-devel"
     ],
     "remove_from_provides": [
         "Provides:"

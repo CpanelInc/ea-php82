@@ -1604,6 +1604,9 @@ fi
 %changelog
 * Thu Apr 11 2024 Cory McIntire <cory@cpanel.net> - 8.2.18-1
 - EA-12085: Update ea-php82 from v8.2.17 to v8.2.18
+- Fixed bug GHSA-pc52-254m-w9w7 (Command injection via array-ish $command parameter of proc_open). (CVE-2024-1874)
+- Fixed bug GHSA-wpj3-hf5j-x4v4 (__Host-/__Secure- cookie bypass due to partial CVE-2022-31629 fix). (CVE-2024-2756)
+- Fixed bug GHSA-h746-cjrr-wfmr (password_verify can erroneously return true, opening ATO risk). (CVE-2024-3096)
 
 * Thu Mar 21 2024 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.17-2
 - ZC-11561: Add GD support for AVIF format on RHEL 8 and newer (RHEL only)

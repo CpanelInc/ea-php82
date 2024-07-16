@@ -95,7 +95,7 @@ BuildRequires: ea-libzip-devel
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.2.20
+Version:  8.2.21
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -1609,6 +1609,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Tue Jul 09 2024 Cory McIntire <cory@cpanel.net> - 8.2.21-1
+- EA-12275: Update ea-php82 from v8.2.20 to v8.2.21
+
 * Thu Jun 06 2024 Cory McIntire <cory@cpanel.net> - 8.2.20-1
 - EA-12194: Update ea-php82 from v8.2.19 to v8.2.20
 - Fixed bug GHSA-3qgc-jrrr-25jv (Bypass of CVE-2012-1823, Argument Injection in PHP-CGI). (CVE-2024-4577)

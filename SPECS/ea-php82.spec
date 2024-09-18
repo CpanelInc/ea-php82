@@ -97,7 +97,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.22
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1609,6 +1609,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Tue Sep 17 2024 Dan Muey <dan@cpanel.net> - 8.2.22-2
+- ZC-12153: make opcache INI a configfile for debs
+
 * Thu Aug 01 2024 Cory McIntire <cory@cpanel.net> - 8.2.22-1
 - EA-12308: Update ea-php82 from v8.2.21 to v8.2.22
 

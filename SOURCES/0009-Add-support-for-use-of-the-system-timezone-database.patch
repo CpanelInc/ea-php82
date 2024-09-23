@@ -34,12 +34,14 @@ r3: fix a crash if /usr/share/zoneinfo doesn't exist (Raphael Geissert)
 r2: add filesystem trawl to set up name alias index
 r1: initial revision
 ---
- ext/date/config0.m4     |  11 +
- ext/date/lib/parse_tz.c | 545 +++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 549 insertions(+), 7 deletions(-)
+ ext/date/config0.m4      |  11 +
+ ext/date/config0.m4.orig |  41 +++
+ ext/date/lib/parse_tz.c  | 545 ++++++++++++++++++++++++++++++++++++++-
+ 3 files changed, 590 insertions(+), 7 deletions(-)
+ create mode 100644 ext/date/config0.m4.orig
 
 diff --git a/ext/date/config0.m4 b/ext/date/config0.m4
-index 6b803bf..11b54c0 100644
+index d7ec926..bf6ae97 100644
 --- a/ext/date/config0.m4
 +++ b/ext/date/config0.m4
 @@ -4,6 +4,17 @@ AC_CHECK_HEADERS([io.h])
@@ -57,9 +59,56 @@ index 6b803bf..11b54c0 100644
 +   fi
 +fi
 +
- PHP_DATE_CFLAGS="-Wno-implicit-fallthrough -I@ext_builddir@/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1"
- timelib_sources="lib/astro.c lib/dow.c lib/parse_date.c lib/parse_tz.c lib/parse_posix.c
-                  lib/timelib.c lib/tm2unixtime.c lib/unixtime2tm.c lib/parse_iso_intervals.c lib/interval.c"
+ AX_CHECK_COMPILE_FLAG([-Wno-implicit-fallthrough],
+   [PHP_DATE_CFLAGS="$PHP_DATE_CFLAGS -Wno-implicit-fallthrough"],,
+   [-Werror])
+diff --git a/ext/date/config0.m4.orig b/ext/date/config0.m4.orig
+new file mode 100644
+index 0000000..d7ec926
+--- /dev/null
++++ b/ext/date/config0.m4.orig
+@@ -0,0 +1,41 @@
++dnl Check for headers needed by timelib
++AC_CHECK_HEADERS([io.h])
++
++dnl Check for strtoll, atoll
++AC_CHECK_FUNCS(strtoll atoll)
++
++AX_CHECK_COMPILE_FLAG([-Wno-implicit-fallthrough],
++  [PHP_DATE_CFLAGS="$PHP_DATE_CFLAGS -Wno-implicit-fallthrough"],,
++  [-Werror])
++
++PHP_DATE_CFLAGS="$PHP_DATE_CFLAGS -I@ext_builddir@/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1"
++timelib_sources="lib/astro.c lib/dow.c lib/parse_date.c lib/parse_tz.c lib/parse_posix.c
++                 lib/timelib.c lib/tm2unixtime.c lib/unixtime2tm.c lib/parse_iso_intervals.c lib/interval.c"
++
++PHP_NEW_EXTENSION(date, php_date.c $timelib_sources, no,, $PHP_DATE_CFLAGS)
++
++PHP_ADD_BUILD_DIR([$ext_builddir/lib], 1)
++PHP_ADD_INCLUDE([$ext_builddir/lib])
++PHP_ADD_INCLUDE([$ext_srcdir/lib])
++
++PHP_INSTALL_HEADERS([ext/date], [php_date.h lib/timelib.h lib/timelib_config.h])
++AC_DEFINE([HAVE_TIMELIB_CONFIG_H], [1], [Have timelib_config.h])
++
++cat > $ext_builddir/lib/timelib_config.h <<EOF
++#ifdef PHP_WIN32
++# include "config.w32.h"
++#else
++# include <php_config.h>
++#endif
++#include <inttypes.h>
++#include <stdint.h>
++
++#include "zend.h"
++
++#define timelib_malloc  emalloc
++#define timelib_realloc erealloc
++#define timelib_calloc  ecalloc
++#define timelib_strdup  estrdup
++#define timelib_strndup estrndup
++#define timelib_free    efree
++EOF
 diff --git a/ext/date/lib/parse_tz.c b/ext/date/lib/parse_tz.c
 index c7f9358..4cc0f21 100644
 --- a/ext/date/lib/parse_tz.c

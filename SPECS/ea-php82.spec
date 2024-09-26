@@ -1611,6 +1611,10 @@ fi
 %changelog
 * Thu Sep 26 2024 Cory McIntire <cory@cpanel.net> - 8.2.24-1
 - EA-12423: Update ea-php82 from v8.2.23 to v8.2.24
+- Fixed bug GHSA-865w-9rf3-2wh5 (Logs from childrens may be altered). (CVE-2024-9026)
+- Fixed bug GHSA-9pqp-7h25-4f32 (Erroneous parsing of multipart form data). (CVE-2024-8925)
+- Fixed bug GHSA-p99j-rfp4-xqvq (Bypass of CVE-2024-4577, Parameter Injection Vulnerability). (CVE-2024-8926)
+- Fixed bug GHSA-94p6-54jq-9mwp (cgi.force_redirect configuration is bypassable due to the environment variable collision). (CVE-2024-8927)
 
 * Fri Sep 20 2024 Cory McIntire <cory@cpanel.net> - 8.2.23-1
 - EA-12399: Update ea-php82 from v8.2.22 to v8.2.23

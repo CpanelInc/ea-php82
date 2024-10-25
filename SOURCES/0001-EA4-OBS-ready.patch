@@ -9,7 +9,7 @@ Subject: [PATCH 01/12] EA4 OBS ready
  2 files changed, 4 deletions(-)
 
 diff --git a/build/php.m4 b/build/php.m4
-index 32487e4..0ac7092 100644
+index e13fc33..04f796c 100644
 --- a/build/php.m4
 +++ b/build/php.m4
 @@ -2022,8 +2022,6 @@ dnl

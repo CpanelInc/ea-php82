@@ -95,9 +95,9 @@ BuildRequires: ea-libzip-devel
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.2.25
+Version:  8.2.26
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 2
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1609,6 +1609,15 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Nov 21 2024 Cory McIntire <cory@cpanel.net> - 8.2.26-1
+- EA-12577: Update ea-php82 from v8.2.25 to v8.2.26
+- (Single byte overread with convert.quoted-printable-decode filter). (CVE-2024-11233)
+- (Configuring a proxy in a stream context might allow for CRLF injection in URIs). (CVE-2024-11234)
+- (Integer overflow in the dblib quoter causing OOB writes). (CVE-2024-11236)
+- (Integer overflow in the firebird quoter causing OOB writes). (CVE-2024-11236)
+- (Leak partial content of the heap through heap buffer over-read). (CVE-2024-8929)
+- (OOB access in ldap_escape). (CVE-2024-8932)
+
 * Fri Oct 25 2024 Julian Brown <julian.brown@cpanel.net> - 8.2.25-2
 - ZC-12246: Correct conffiles for Ubuntu
 

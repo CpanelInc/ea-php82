@@ -1611,6 +1611,12 @@ fi
 %changelog
 * Thu Mar 13 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.2.28-1
 - EA-12772: Update ea-php82 from v8.2.27 to v8.2.28
+    - Fixed GHSA-hgf54-96fm-v528 (Stream HTTP wrapper header check might omit basic auth header). (CVE-2025-1736)
+    - Fixed GHSA-52jp-hrpf-2jff (Stream HTTP wrapper truncate redirect location to 1024 bytes). (CVE-2025-1861)
+    - Fixed GHSA-pcmh-g36c-qc44 (Streams HTTP wrapper does not fail for headers without colon). (CVE-2025-1734)
+    - Fixed GHSA-v8xr-gpvj-cx9g (Header parser of `http` stream wrapper does not handle folded headers). (CVE-2025-1217)
+    - Fixed GHSA-p3x9-6h7p-cgfc (libxml streams use wrong `content-type` header when requesting a redirected resource). (CVE-2025-1219)
+    - Fixed GHSA-rwp7-7vc6-8477 (Reference counting in php_request_shutdown causes Use-After-Free). (CVE-2024-11235)
 
 * Thu Dec 19 2024 Cory McIntire <cory@cpanel.net> - 8.2.27-1
 - EA-12617: Update ea-php82 from v8.2.26 to v8.2.27

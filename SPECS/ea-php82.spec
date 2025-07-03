@@ -95,7 +95,7 @@ BuildRequires: ea-libzip-devel
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.2.28
+Version:  8.2.29
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -1624,6 +1624,13 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Jul 03 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.2.29-1
+- EA-12996: Update ea-php82 from v8.2.28 to v8.2.29
+- Fixed GHSA-3cr5-j632-f35r (Null byte termination in hostnames). (CVE-2025-1220)
+- Fixed GHSA-453j-q27h-5p8x (NULL Pointer Dereference in PHP SOAP Extension via Large XML Namespace Prefix). (CVE-2025-6491)
+- Fixed GHSA-hrwm-9436-5mv3 (pgsql extension does not check for errors during escaping). (CVE-2025-1735)
+
+
 * Thu Mar 13 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.2.28-1
 - EA-12772: Update ea-php82 from v8.2.27 to v8.2.28
     - Fixed GHSA-hgf54-96fm-v528 (Stream HTTP wrapper header check might omit basic auth header). (CVE-2025-1736)

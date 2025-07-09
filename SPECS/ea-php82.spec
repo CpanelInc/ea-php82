@@ -95,7 +95,7 @@ BuildRequires: ea-libzip-devel
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.2.28
+Version:  8.2.29
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
 %define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
@@ -145,6 +145,10 @@ Patch404: 0012-Prevent-kill_all_lockers-from-crashing-PHP.patch
 
 %if 0%{?rhel} == 7
 BuildRequires: devtoolset-8 devtoolset-8-gcc devtoolset-8-gcc-c++ kernel-devel
+%endif
+
+%if 0%{rhel} >= 10
+BuildRequires: langpacks-fonts-en
 %endif
 
 BuildRequires: re2c
@@ -594,7 +598,13 @@ Requires: %{?scl_prefix}php-pdo%{?_isa} = %{version}-%{release}
 Provides: %{?scl_prefix}php_database = %{version}-%{release}
 Provides: %{?scl_prefix}php-pdo_pgsql = %{version}-%{release}, %{?scl_prefix}php-pdo_pgsql%{?_isa} = %{version}-%{release}
 
-BuildRequires: krb5-devel, postgresql-devel
+BuildRequires: krb5-devel
+
+%if 0%{?rhel} >= 10
+BuildRequires: postgresql-private-devel
+%else
+BuildRequires: postgresql-devel
+%endif
 
 %if 0%{?rhel} > 7
 # In C8 we use system openssl. See DESIGN.md in ea-openssl11 git repo for details
@@ -837,8 +847,13 @@ Group: System Environment/Libraries
 License: PHP
 Requires: %{?scl_prefix}php-common%{?_isa} = %{version}-%{release}
 Requires: %{?scl_prefix}php-cli%{?_isa} = %{version}-%{release}
+%if 0%{?rhel} >= 10
+Requires: libicu
+BuildRequires: libicu-devel >= 50.1
+%else
 Requires: ea-libicu
 BuildRequires: ea-libicu-devel >= 50.1
+%endif
 
 %description intl
 The %{?scl_prefix}php-intl package contains a dynamic shared object that will add
@@ -1609,6 +1624,13 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Jul 03 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.2.29-1
+- EA-12996: Update ea-php82 from v8.2.28 to v8.2.29
+- Fixed GHSA-3cr5-j632-f35r (Null byte termination in hostnames). (CVE-2025-1220)
+- Fixed GHSA-453j-q27h-5p8x (NULL Pointer Dereference in PHP SOAP Extension via Large XML Namespace Prefix). (CVE-2025-6491)
+- Fixed GHSA-hrwm-9436-5mv3 (pgsql extension does not check for errors during escaping). (CVE-2025-1735)
+
+
 * Thu Mar 13 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.2.28-1
 - EA-12772: Update ea-php82 from v8.2.27 to v8.2.28
     - Fixed GHSA-hgf54-96fm-v528 (Stream HTTP wrapper header check might omit basic auth header). (CVE-2025-1736)

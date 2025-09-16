@@ -97,7 +97,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.29
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1624,6 +1624,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Wed Sep 10 2025 Dan Muey <daniel.muey@webpros.com> - 8.2.29-2
+- EA4-122: map u24 libodbc for PHP extension
+
 * Thu Jul 03 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.2.29-1
 - EA-12996: Update ea-php82 from v8.2.28 to v8.2.29
 - Fixed GHSA-3cr5-j632-f35r (Null byte termination in hostnames). (CVE-2025-1220)

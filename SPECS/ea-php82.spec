@@ -95,9 +95,9 @@ BuildRequires: ea-libzip-devel
 Summary:  PHP scripting language for creating dynamic web sites
 Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
-Version:  8.2.29
+Version:  8.2.30
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 3
+%define release_prefix 1
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1629,6 +1629,12 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Thu Dec 18 2025 Cory McIntire <cory.mcintire@webpros.com> - 8.2.30-1
+- EA-13297: Update ea-php82 from v8.2.29 to v8.2.30
+- Fixed GHSA-8xr5-qppj-gvwj (PDO quoting result null deref). (CVE-2025-14180)
+ -Fixed GHSA-h96m-rvf9-jgm2 (Heap buffer overflow in array_merge()). (CVE-2025-14178)
+- Fixed GHSA-3237-qqm7-mfv7 (Information Leak of Memory in getimagesize). (CVE-2025-14177)
+
 * Tue Sep 23 2025 Chris Castillo <chris.castillo@webpros.com> - 8.2.29-3
 - EA-13088: Update php-litespeed to 8.3
 

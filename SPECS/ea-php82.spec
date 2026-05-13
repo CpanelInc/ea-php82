@@ -111,7 +111,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.31
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1666,6 +1666,9 @@ fi
 - Fixed GHSA-96wq-48vp-hh57 (Signed integer overflow of char array offset). (CVE-2026-7568)
 - Fixed GHSA-m8rr-4c36-8gq4 (Unsigned char handling in ctype.h functions). (CVE-2026-7258)
 
+* Wed May 13 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.2.31-2
+- EA4-260: Build for Ubuntu 26.04
+
 * Thu Jan 08 2026 Gary Stanley <gary.stanley@webpros.com> - 8.2.30-2
 - EA4-230: Use system libxml2 in PHP 8.2
 
@@ -1861,4 +1864,3 @@ fi
 
 * Fri Oct 07 2022 Brian Mendoza <brian.mendoza@cpanel.net> - 8.2.0-1
 - ZC-10359: Initial Build
-

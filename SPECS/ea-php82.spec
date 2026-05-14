@@ -1655,7 +1655,7 @@ fi
 %files zip -f files.zip
 
 %changelog
-* Thu May 07 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.2.31-1
+* Thu May 13 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.2.31-1
 - EA-13427: Update ea-php82 from v8.2.30 to v8.2.31
 - Fixed GHSA-7qg2-v9fj-4mwv (XSS within FPM status endpoint). (CVE-2026-6735)
 - Fixed GHSA-wm6j-2649-pv75 (Null pointer dereference in mb_ereg_search_init()). (CVE-2026-7259)

@@ -1655,6 +1655,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Wed May 13 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.2.31-2
+- EA4-260: Build for Ubuntu 26.04
+
 * Thu May 13 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.2.31-1
 - EA-13427: Update ea-php82 from v8.2.30 to v8.2.31
 - Fixed GHSA-7qg2-v9fj-4mwv (XSS within FPM status endpoint). (CVE-2026-6735)
@@ -1665,9 +1668,6 @@ fi
 - Fixed GHSA-hmxp-6pc4-f3vv (Broken Apache map value NULL check in SOAP). (CVE-2026-7262)
 - Fixed GHSA-96wq-48vp-hh57 (Signed integer overflow of char array offset). (CVE-2026-7568)
 - Fixed GHSA-m8rr-4c36-8gq4 (Unsigned char handling in ctype.h functions). (CVE-2026-7258)
-
-* Wed May 13 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.2.31-2
-- EA4-260: Build for Ubuntu 26.04
 
 * Thu Jan 08 2026 Gary Stanley <gary.stanley@webpros.com> - 8.2.30-2
 - EA4-230: Use system libxml2 in PHP 8.2

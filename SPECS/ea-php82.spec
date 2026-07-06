@@ -1657,6 +1657,7 @@ fi
 %changelog
 * Sat Jul 04 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 8.2.32-1
 - EA-13482: Update ea-php82 from v8.2.31 to v8.2.32
+- Fixed bug GH-22187 (Memory corruption in openssl_encrypt with AES-WRAP-PAD). (CVE-2026-14355)
 
 * Wed May 13 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.2.31-2
 - EA4-260: Build for Ubuntu 26.04

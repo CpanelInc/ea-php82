@@ -1657,6 +1657,9 @@ fi
 %changelog
 * Thu Jul 30 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.2.33-1
 - EA-13519: Update ea-php82 from v8.2.32 to v8.2.33
+- Fixed libgd vulnerability. (CVE-2026-9672; severity not yet assigned)
+- Fixed SQL injection via E'...' backslash breakout. (CVE-2026-17543; High, CVSS 4.0 8.1)
+- Fixed crash via recursive symlinks in Phar archives. (CVE-2026-7260; Medium, CVSS 4.0 5.4)
 
 * Sat Jul 04 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 8.2.32-1
 - EA-13482: Update ea-php82 from v8.2.31 to v8.2.32

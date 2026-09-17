@@ -111,7 +111,7 @@ Vendor:   cPanel, Inc.
 Name:     %{?scl_prefix}php
 Version:  8.2.33
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4588 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:  %{release_prefix}%{?dist}.cpanel
 # All files licensed under PHP version 3.01, except
 # Zend is licensed under Zend
@@ -1097,9 +1097,9 @@ cp ../Zend/zend_{language,ini}_{parser,scanner}.* Zend
 # zlib: used by image
 
 %if 0%{?rhel} > 7
-export PKG_CONFIG_PATH=/opt/cpanel/ea-php82/root/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-php82/root/usr/share/pkgconfig:/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-libicu/lib/pkgconfig:/opt/cpanel/ea-oniguruma/%{_lib}/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig:/usr/lib64/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig
+export PKG_CONFIG_PATH=/opt/cpanel/ea-php82/root/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-php82/root/usr/share/pkgconfig:/opt/cpanel/ea-libicu/lib/pkgconfig:/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-oniguruma/%{_lib}/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig:/usr/lib64/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig
 %else
-export PKG_CONFIG_PATH=/opt/cpanel/ea-php82/root/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-php82/root/usr/share/pkgconfig:/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-openssl11/%{_lib}/pkgconfig:/opt/cpanel/ea-libicu/lib/pkgconfig:/opt/cpanel/ea-oniguruma/%{_lib}/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig:/usr/lib64/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig
+export PKG_CONFIG_PATH=/opt/cpanel/ea-php82/root/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-php82/root/usr/share/pkgconfig:/opt/cpanel/ea-libicu/lib/pkgconfig:/usr/%{_lib}/pkgconfig:/opt/cpanel/ea-openssl11/%{_lib}/pkgconfig:/opt/cpanel/ea-oniguruma/%{_lib}/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig:/usr/lib64/pkgconfig:/opt/cpanel/libargon2/lib64/pkgconfig
 %endif
 
 %if !%{use_system_libxml2}
@@ -1655,6 +1655,9 @@ fi
 %files zip -f files.zip
 
 %changelog
+* Mon Sep 14 2026 Heekyoung Park <heekyoung.park@webpros.com> - 8.2.33-2
+- EA4-326: Fix php-intl to link against ea-libicu on AlmaLinux 9
+
 * Thu Jul 30 2026 Cory McIntire <cory.mcintire@webpros.com> - 8.2.33-1
 - EA-13519: Update ea-php82 from v8.2.32 to v8.2.33
 - Fixed libgd vulnerability. (CVE-2026-9672; severity not yet assigned)

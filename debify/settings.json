@@ -27,6 +27,7 @@
         "ea-php82-php",
         "pkgconfig(libsodium)",
         "libavif",
+        "libavif-bin",
         "libavif-dev",
         "libsodium"
     ],

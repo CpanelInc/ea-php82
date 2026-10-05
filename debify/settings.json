@@ -26,6 +26,9 @@
         "brotli-devel",
         "ea-php82-php",
         "pkgconfig(libsodium)",
+        "libavif",
+        "libavif-bin",
+        "libavif-dev",
         "libsodium"
     ],
     "remove_from_provides": [
@@ -57,12 +60,14 @@
         "libbrotli-dev",
         "libbrotli1",
         "libsodium-dev",
+        "libavif-dev",
         "libsodium23"
     ],
     "add_to_requires": {
         "ea-php82-php-xml": [ ["libxml2-16", "libxml2t64", "libxml2"] ],
         "ea-php82-php-imap": [ "libc-client2007e" ],
         "ea-php82-php-dba": [ "libtokyocabinet9" ],
+        "ea-php82-php-gd" : [ "libavif-bin" ],
         "ea-php82-php-odbc": [ [ "libodbc1", "libodbc2" ] ],
         "ea-php82-php-pdo": [ "libpq5" ],
         "ea-php82-php-pgsql": [ "libpq5" ],
